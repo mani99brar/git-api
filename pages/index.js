@@ -21,25 +21,15 @@ export default function Home() {
         <title>Github Sponsor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {/* ... rest of your code ... */}
-
       <main>
-        {/* ... rest of your code ... */}
-        
-        {/* Add an authentication button */}
+
         <button onClick={handleAuth} className={styles.authButton}>
           Authenticate with GitHub
         </button>
-        
-        {/* ... rest of your code ... */}
+
       </main>
 
-      {/* ... rest of your code ... */}
-
       <style jsx>{`
-    
-
         .authButton {
           padding: 10px 20px;
           margin: 20px;
@@ -50,8 +40,6 @@ export default function Home() {
           border-radius: 5px;
         }
       `}</style>
-
-      {/* ... rest of your code ... */}
     </div>
   );
 }
