@@ -10,7 +10,9 @@ const Repositories = () => {
             .then(data => setRepos(data))
             .catch(error => console.error('Error fetching repos:', error));
     }, []); // Empty dependency array means this effect runs once on mount
-
+    useEffect(() => {
+        console.log(repos);
+    },[repos]);
     return (
         <div>
             <h1>User Repositories</h1>
