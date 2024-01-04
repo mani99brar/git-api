@@ -16,20 +16,20 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
+    <div >
       <Head>
         <title>Github Sponsor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-
-        <button onClick={handleAuth} className={styles.authButton}>
+        <h1 > Add omo as Sponsor in Github repo</h1>
+        <button onClick={handleAuth} >
           Authenticate with GitHub
         </button>
 
       </main>
 
-      <style jsx>{`
+      <style jsx global>{`
         .authButton {
           padding: 10px 20px;
           margin: 20px;
@@ -39,6 +39,35 @@ export default function Home() {
           cursor: pointer;
           border-radius: 5px;
         }
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+          background-color: #black;
+       }
+        main {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: black;
+        }
+        button {
+          padding: 10px 20px;
+          margin: 20px;
+          background-color: white;
+          color: #2d2d2d;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 1.2rem;
+      }
+      h1{
+        color: white;
+        font-size: 2.4rem;
+        margin-bottom: 60px;
+    }  
       `}</style>
     </div>
   );
