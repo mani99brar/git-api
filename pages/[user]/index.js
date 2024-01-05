@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import axios from 'axios'; // Import Axios
 
 const Repositories = () => {
+    const router = useRouter();
+    const user = router.query.user;
+
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [customContent, setCustomContent] = useState("custom: 'https://omo.so/User'"); // Default content
 
     useEffect(() => {
+        
         // Function to fetch the repositories
         const fetchRepos = async () => {
+            setLoading(true);
             try {
-                const response = await axios.post('https://git-api-backend-production.up.railway.app/get-repos');
+                const response = await axios.post('https://git-api-backend-production.up.railway.app/get-repos', {
+                    user: user // Pass the user as part of the request body
+                });
                 setRepos(response.data); // Update the state with the fetched repositories
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching repos:', error);
+                setMessage(`Error fetching repositories: ${error.message}`);
+                setLoading(false);
             }
         };
-
-        fetchRepos(); // Call the function to fetch repositories
-    }, []); // Empty dependency array means this effect runs once on mount
+    
+        if (user) {
+            fetchRepos(); // Call the function to fetch repositories if user is defined
+        }
+    }, [user]); // Empty dependency array means this effect runs once on mount
 
     // Function to handle adding FUNDING.yml to the selected repository
     const handleAddFundingFile = async (repo) => {

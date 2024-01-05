@@ -23,6 +23,7 @@ export default function Home() {
       </Head>
       <main>
         <h1 > Add omo as Sponsor in Github repo</h1>
+        
         <button onClick={handleAuth} >
           Authenticate with GitHub
         </button>
