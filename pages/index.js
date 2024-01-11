@@ -5,7 +5,7 @@ export default function Home() {
   // Function to handle the GitHub authentication
   const handleAuth = () => {
     const client_id = "9120b5755513c4851300";
-    const redirect_uri = "https://git-api-backend-production.up.railway.app/oauth-callback?mani";
+    const redirect_uri = "https://git-api-backend-production.up.railway.app/oauth-callback?user=mani";
     const scope = "repo";  // Adjust the scope according to your needs
 
     // Construct the GitHub OAuth URL
